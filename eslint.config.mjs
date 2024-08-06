@@ -13,7 +13,7 @@ export default [
         },
       },
       globals: {
-        // Define necessary globals
+        // Include any necessary globals
       },
     },
     plugins: {
@@ -21,14 +21,14 @@ export default [
       jest: pluginJest,
     },
     rules: {
-      "react/react-in-jsx-scope": "off", // If using React 17+ JSX Transform
+      "react/react-in-jsx-scope": "off",
       "react/jsx-uses-react": "error",
-      "react/jsx-uses-vars": "error",
+      "react/jsx-uses-vars": "error"
     },
     settings: {
       react: {
-        version: "detect",
-      },
+        version: "detect"
+      }
     },
   },
   {
@@ -36,12 +36,8 @@ export default [
     languageOptions: {
       globals: {
         test: "readonly",
-        expect: "readonly",
-        // Include other Jest globals if needed
-      },
-    },
-    rules: {
-      // Add or override rules specific to test files here
-    },
-  },
+        expect: "readonly"
+      }
+    }
+  }
 ];
