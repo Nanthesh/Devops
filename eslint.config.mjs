@@ -1,6 +1,5 @@
-import pluginReact from "eslint-plugin-react";
-import pluginJest from "eslint-plugin-jest";
 import babelParser from "@babel/eslint-parser";
+import pluginReact from "eslint-plugin-react";
 
 export default [
   {
@@ -11,36 +10,24 @@ export default [
       parser: babelParser,
       parserOptions: {
         ecmaFeatures: {
-          jsx: true, // Enable JSX support
+          jsx: true,
         },
         babelOptions: {
-          plugins: ["@babel/plugin-syntax-jsx"], // Ensure JSX syntax is supported
+          plugins: ["@babel/plugin-syntax-jsx"],
         },
         requireConfigFile: false,
       },
     },
     plugins: {
       react: pluginReact,
-      jest: pluginJest,
     },
     rules: {
       "react/react-in-jsx-scope": "off",
-      "react/jsx-uses-react": "error",
-      "react/jsx-uses-vars": "error"
     },
     settings: {
       react: {
-        version: "detect"
-      }
+        version: "detect",
+      },
     },
-  },
-  {
-    files: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
-    languageOptions: {
-      globals: {
-        test: "readonly",
-        expect: "readonly"
-      }
-    }
   }
 ];
