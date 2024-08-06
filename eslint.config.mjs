@@ -1,22 +1,24 @@
 import babelParser from "@babel/eslint-parser";
+import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
+import globals from "globals";
 
 export default [
   {
-    files: ["**/*.{js,jsx}"],
+    files: ["**/*.{js,jsx,mjs,cjs}"],
     languageOptions: {
       ecmaVersion: 2021,
       sourceType: "module",
       parser: babelParser,
       parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-        babelOptions: {
-          presets: ["@babel/preset-react"],
-        },
         requireConfigFile: false,
+        babelOptions: {
+          presets: ["@babel/preset-react"]
+        }
       },
+      globals: {
+        ...globals.browser
+      }
     },
     plugins: {
       react: pluginReact,
@@ -30,6 +32,15 @@ export default [
       react: {
         version: "detect",
       },
+    }
+  },
+  {
+    files: ["**/*.{test.js,test.jsx,spec.js,spec.jsx}"],
+    languageOptions: {
+      globals: {
+        jest: "readonly",
+        expect: "readonly",
+      },
     },
-  }
+  },
 ];
