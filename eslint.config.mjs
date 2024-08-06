@@ -10,18 +10,21 @@ export default [
       parser: babelParser,
       parserOptions: {
         ecmaFeatures: {
-          jsx: true, // Enable JSX syntax
+          jsx: true,
         },
-        requireConfigFile: true, // Explicitly require Babel config
+        babelOptions: {
+          presets: ["@babel/preset-react"],
+        },
+        requireConfigFile: false,
       },
     },
     plugins: {
       react: pluginReact,
     },
     rules: {
-      "react/react-in-jsx-scope": "off", // For React 17+
+      "react/react-in-jsx-scope": "off",
       "react/jsx-uses-react": "off",
-      "react/jsx-uses-vars": "error"
+      "react/jsx-uses-vars": "error",
     },
     settings: {
       react: {
