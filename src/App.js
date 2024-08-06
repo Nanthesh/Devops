@@ -5,7 +5,8 @@ const App = () => {
     <>
     <h1>DEVOPS Project GROUP 5</h1>
     <p>Git Hub</p>
-    <p>Junkins</p>
+    <p>Git Hub pipeline</p>
+    <p>Junkins </p>
     </>
   )
 }
