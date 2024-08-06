@@ -2,7 +2,10 @@ import React from 'react'
 
 const App = () => {
   return (
-    <div>DEVOPS Project GROUP 5</div>
+    <>
+    <h1>DEVOPS Project GROUP 5</h1>
+    <p>Git Hub</p>
+    </>
   )
 }
 
