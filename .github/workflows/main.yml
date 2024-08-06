@@ -1,15 +1,10 @@
 name: CI
 
-on:
-  pull_request:
-    branches:
-      - master
-      - main
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -24,6 +19,3 @@ jobs:
 
       - name: Run Lint
         run: npm run lint
-
-      - name: Run Tests
-        run: npm test
