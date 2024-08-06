@@ -1,41 +1,35 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
-import pluginJest from "eslint-plugin-jest"; // Add this line
+import pluginJest from "eslint-plugin-jest";
 
-export default [
-  {
-    files: ["**/*.{js,mjs,cjs,jsx}"],
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.jest, // Add Jest globals
-      },
-      ecmaVersion: 2021, // Ensure ECMAScript version is set
-      sourceType: "module",
+export default {
+  files: ["**/*.{js,mjs,cjs,jsx}"],
+  languageOptions: {
+    ecmaVersion: 2021,
+    sourceType: "module",
+    parserOptions: {
       ecmaFeatures: {
         jsx: true,
       },
     },
-    plugins: {
-      react: pluginReact,
-      jest: pluginJest, // Add Jest plugin
-    },
-    env: {
-      browser: true,
-      es2021: true,
-      jest: true, // Add Jest environment
-    },
-    rules: {
-      "react/react-in-jsx-scope": "off", // Optional, if you are using React 17+
-    },
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
+    globals: {
+      test: "readonly",
+      expect: "readonly"
+    }
   },
-  pluginJs.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  pluginJest.configs.recommended, // Add Jest recommended configuration
-];
+  plugins: {
+    react: pluginReact,
+    jest: pluginJest,
+  },
+  rules: {
+    ...pluginReact.configs.recommended.rules, // Include recommended rules from react plugin
+    ...pluginJest.configs.recommended.rules, // Include recommended rules from jest plugin
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  },
+  settings: {
+    react: {
+      version: "detect"
+    }
+  }
+};
