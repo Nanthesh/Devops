@@ -1,0 +1,16 @@
+{
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "plugins": ["react", "jest"],
+    "rules": {
+      // Add any custom rules here
+      "react/react-in-jsx-scope": "off" // Example rule
+    },
+    "globals": {
+      "test": "readonly",
+      "expect": "readonly"
+    }
+  }
+  
