@@ -4,7 +4,6 @@ const App = () => {
   return (
     <>
     <h1>DEVOPS Project GROUP 5</h1>
-    
     <ul>
       <li>Git Hub</li>
       <li>Git Hub pipeline</li>
