@@ -7,7 +7,6 @@ const App = () => {
     <ul>
       <li>Git Hub</li>
       <li>Git Hub pipeline</li>
-      
       <li>Docker</li>
       <li>Junkins</li>
       <li>Kubernet</li>
